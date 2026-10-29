@@ -131,7 +131,14 @@ Chez Abibas : `/verifier <rapport>`, `/devis <courriel>`, `/ticket`.
 
 Un fichier dans `.claude/agents/` décrit un sous-agent : son rôle, ses **seuls** outils, et les skills qu’il doit charger (ligne `skills:`). Chacun part d’une page blanche et ne reçoit que sa mission.
 
-Chez Abibas : un `planificateur`, un `redacteur` (le seul qui écrit), quatre relecteurs en lecture seule (`verificateur-coherence`, `verificateur-conformite`, `relecteur-logique`, `relecteur-langue`) et un `auditeur-client`.
+Chez Abibas, un **orchestrateur** et sept agents :
+
+- `orchestrateur` (opus) : il découpe, délègue, fusionne et décide quand c’est fini. On le lance comme agent principal : `claude --agent orchestrateur`.
+- `planificateur` (sonnet), `redacteur` (sonnet, le seul qui écrit) ;
+- quatre relecteurs en lecture seule : `verificateur-coherence` (haiku), `verificateur-conformite` (haiku), `relecteur-logique` (sonnet), `relecteur-langue` (haiku) ;
+- `auditeur-client` (sonnet).
+
+Chaque agent a son modèle par défaut (ligne `model:`) : le plus léger qui suffit. L’orchestrateur peut demander un modèle plus fort pour un cas difficile.
 
 ## Les hooks et les permissions : les freins
 

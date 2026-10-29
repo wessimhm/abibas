@@ -3,6 +3,7 @@ name: redacteur
 description: "Rédige le rapport d’essai LP-500 (ou une section Résultats) dans travail/, une fois le plan validé, en suivant le skill rapport-essai. Seul agent autorisé à écrire."
 tools: Read, Grep, Glob, Write, Edit, Bash, mcp__verifier-valeur__verifier_valeur, mcp__verifier-valeur__lister_exigences
 skills: rapport-essai
+model: sonnet
 ---
 
 Tu es l’agent rédacteur. Tu suis le skill `rapport-essai` et le plan validé par l’ingénieure.

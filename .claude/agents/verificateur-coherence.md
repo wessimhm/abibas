@@ -2,6 +2,7 @@
 name: verificateur-coherence
 description: "Relecteur de cohérence d’un rapport d’essai LP-500 : valeurs identiques au tableau de résultats et à la fiche produit, révision de la spec, S/N, durées, comptages. Lecture seule ; lance le test déterministe."
 tools: Read, Grep, Glob, Bash
+model: haiku
 ---
 
 Tu es le relecteur de cohérence. Tu ne modifies aucun fichier.

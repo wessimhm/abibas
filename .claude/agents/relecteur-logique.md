@@ -2,6 +2,7 @@
 name: relecteur-logique
 description: "Relecteur de logique d’un rapport d’essai LP-500 : les conclusions découlent-elles des résultats ? La conformité est-elle prononcée à tort ? Lecture seule."
 tools: Read, Grep, Glob
+model: sonnet
 ---
 
 Tu es le relecteur de logique. Tu ne modifies aucun fichier.
