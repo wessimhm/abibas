@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Affiche le texte d'un .docx (paragraphes et tableaux, dans l'ordre) ou d'un .xlsx (lignes),
 pour que l'IA le lise. Les décimales s'affichent avec une virgule.
+Ce que l'outil ne lit pas est signalé, jamais deviné : [IMAGE NON LUE] pour une image ou un schéma.
+Les listes numérotées s'affichent « 1. » (la numérotation automatique de Word n'est pas dans le texte).
 Usage : python3 outils/lire_document.py "essais/RA-L500-01 - Rapport d essai LP-500 (brouillon a verifier).docx"
 Lecture seule : ce script ne modifie rien."""
 import sys
@@ -21,6 +23,8 @@ def val(v):
         return ""
     if isinstance(v, float):
         return (str(int(v)) if v.is_integer() else str(v)).replace(".", ",")
+    if hasattr(v, "strftime"):  # date Excel : AAAA-MM-JJ, sans heure inutile
+        return v.strftime("%Y-%m-%d") if not (getattr(v, "hour", 0) or getattr(v, "minute", 0)) else v.strftime("%Y-%m-%d %H:%M")
     return str(v)
 
 
@@ -29,13 +33,18 @@ try:
         import docx
         from docx.table import Table
         from docx.text.paragraph import Paragraph
+        from docx.oxml.ns import qn
         d = docx.Document(chemin)
         for el in d.element.body.iterchildren():
             tag = el.tag.split("}")[-1]
             if tag == "p":
                 p = Paragraph(el, d)
+                if el.findall(".//" + qn("w:drawing")) or el.findall(".//" + qn("w:pict")):
+                    print("[IMAGE NON LUE]")
                 if p.text.strip():
-                    print(("## " if p.style.name.startswith("Heading") else "") + p.text)
+                    style = p.style.name
+                    prefixe = "## " if style.startswith("Heading") else "1. " if style.startswith("List Number") else "- " if style.startswith("List") else ""
+                    print(prefixe + p.text)
             elif tag == "tbl":
                 for r in Table(el, d).rows:
                     print("| " + " | ".join(c.text for c in r.cells) + " |")
