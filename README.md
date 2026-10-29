@@ -18,13 +18,13 @@ abibas/
 │   ├── agents/               les coéquipiers spécialisés, chacun avec ses outils
 │   ├── hooks/                les freins automatiques
 │   └── settings.json         les permissions : autorisé, interdit, demander
-├── .mcp.json                 les connexions aux outils maison (MCP)
+├── .mcp.json                 les connexions MCP : Jira (Atlassian) et les outils maison
 ├── mcp/                      le code des serveurs MCP
 ├── connaissances/            la base de connaissances, en Markdown : ce que l’IA lit
 ├── originaux/                les mêmes documents en Word et Excel, pour les humains
 ├── entrees/                  ce qui arrive et doit être traité : courriels, portail client, résultats
 ├── essais/                   l’essai en cours : le tableau de résultats et le brouillon à vérifier
-├── donnees/                  la base du labo (SQLite) et le Jira simulé
+├── donnees/                  la base du labo (SQLite), le Jira simulé et l’import Jira de test
 ├── outils/                   les petits scripts : lire un .docx, calculer un devis…
 ├── tests/                    les vérifications automatiques
 └── travail/                  le seul endroit où Claude écrit
@@ -54,7 +54,7 @@ Un courriel n’entre jamais dans la base : il arrive dans `entrees/`, on le tra
 | `.claude/agents/` | Un coéquipier spécialisé, avec ses seuls outils | Quand Claude lui confie une tâche | `relecteur-langue` : lecture seule |
 | `.claude/hooks/` | Un frein qui s’exécute tout seul | Avant ou après chaque action | `garde.py` bloque « supprime le dossier travail » |
 | `.claude/settings.json` | Les permissions | Tout le temps | `rm` interdit, écriture seulement dans `travail/` |
-| `.mcp.json` + `mcp/` | Les outils maison branchés à Claude | Quand Claude en a besoin | `verifier_valeur` compare une mesure à la spec |
+| `.mcp.json` + `mcp/` | Les outils branchés à Claude : Jira (Atlassian) et les outils maison | Quand Claude en a besoin | `searchJiraIssuesUsingJql` cherche dans Jira ; `verifier_valeur` compare une mesure à la spec |
 | `tests/` | Les vérifications automatiques | Quand on les lance | `verifier_rapport.py` : 25 contrôles |
 
 ## CLAUDE.md : le carnet de bord
@@ -118,18 +118,22 @@ Chez Abibas : un `planificateur`, un `redacteur` (le seul qui écrit), quatre re
 
 ## Les hooks et les permissions : les freins
 
-- `.claude/settings.json` fixe ce qui est **autorisé** (lire, écrire dans `travail/`, lancer les tests), **interdit** (`rm`, `curl`, écrire dans la base) et ce qui **demande votre accord** (créer un ticket Jira).
+- `.claude/settings.json` fixe ce qui est **autorisé** (lire, écrire dans `travail/`, lancer les tests), **interdit** (`rm`, `curl`, écrire dans la base, supprimer un ticket Jira) et ce qui **demande votre accord** (créer ou modifier un ticket Jira).
 - Les hooks sont des scripts lancés automatiquement : `garde.py` avant chaque action (il bloque suppressions et envois), `apres_ecriture.py` après chaque écriture, `fin.py` à la fin.
 
 Une consigne dans CLAUDE.md peut être oubliée ; un hook ou une permission, non.
 
-## Les MCP : les outils maison
+## Les MCP : un du marché, des maison
 
-`.mcp.json` branche trois serveurs écrits par Abibas (dossier `mcp/`) :
+`.mcp.json` branche deux sortes de serveurs :
 
-- `verifier-valeur` : `lister_exigences`, `lire_resultats`, `verifier_valeur`, `chercher_nc`, `calculer_devis` ;
-- `abibas-sql` : `requete_sql`, en lecture seule ;
-- `jira-simule` : `chercher_tickets`, `lister_tickets`, `creer_ticket` (toujours en « À trier »).
+- **Du marché** : `atlassian`, le serveur officiel d’Atlassian, pour le Jira qualité (projet QUAL). Une seule ligne, aucune ligne de code ; on se connecte avec `/mcp` et son compte Atlassian, et l’IA n’a que les droits de ce compte. Lire et chercher sont libres ; créer ou modifier un ticket demande l’accord ; supprimer est interdit.
+- **Maison**, écrits par Abibas (dossier `mcp/`), parce qu’aucun serveur du marché ne connaît la base du labo :
+  - `verifier-valeur` : `lister_exigences`, `lire_resultats`, `verifier_valeur`, `chercher_nc`, `calculer_devis` ;
+  - `abibas-sql` : `requete_sql`, en lecture seule ;
+  - `jira-simule` : un petit Jira hors ligne (`chercher_tickets`, `lister_tickets`, `creer_ticket`), pour s’exercer sans compte Atlassian.
+
+Pour essayer `atlassian` sur un Jira de test : créer un site Jira Cloud gratuit avec un projet QUAL, puis importer `donnees/jira-qual-import.csv` (les deux tickets d’exemple).
 
 ## Essayer
 
@@ -140,4 +144,4 @@ claude
 
 Puis, par exemple : `Vérifie le brouillon RA-L500-01 contre la spec SPEC-LFB-BAL-01 et liste les écarts dans un tableau.`
 
-Prérequis : Python 3 et le paquet `mcp` (`pip install mcp`) pour les serveurs MCP.
+Prérequis : Python 3 et le paquet `mcp` (`pip install mcp`) pour les serveurs MCP maison ; un compte Jira Cloud pour `atlassian` (facultatif).

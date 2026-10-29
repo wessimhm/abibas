@@ -1,0 +1,21 @@
+Summary,Issue Type,Description,Labels
+Belmont · ballon 77 · logo effacé après 3 matchs,Task,"Client : Ligue de foot de Belmont, saison 2027 (demandeuse : Isabelle Roy)
+Produit : Ballon d’entraînement LP-300 (S/N K-1207)
+Symptôme : Logo de la ligue effacé après 3 matchs ; le ballon garde sa pression.
+Date de l’incident : 2026-08-12
+Unités : ballon 77
+Gravité : Mineure (confirmée)
+Exigence : Aucune exigence de SPEC-LFB-BAL-01
+Cas semblables : Aucun
+Résolution : Nouvelle encre d’impression du logo.
+Ancienne clé : QUAL-41 (exemple fictif Abibas)",reclamation-client
+Belmont · ballon 15 · couture qui prend l’eau après lavage,Task,"Client : Ligue de foot de Belmont, saison 2027 (demandeuse : Isabelle Roy)
+Produit : Ballon LP-400 (S/N K-0388)
+Symptôme : Le ballon est lourd et mou après un lavage au jet ; l’eau entre par une couture près de la valve.
+Date de l’incident : 2026-06-03
+Unités : ballon 15
+Gravité : Majeure (confirmée)
+Exigence : EX-03 (absorption d’eau)
+Cas semblables : NC-2025-021 (prise d’eau à une couture, LP-400)
+Résolution : Remplacement par un ballon thermocollé (action de NC-2025-021).
+Ancienne clé : QUAL-42 (exemple fictif Abibas)",reclamation-client

@@ -26,7 +26,10 @@
       "Bash(python3 tests/verifier_ticket.py)",
       "Bash(python3 tests/verifier_ticket.py *)",
       "Bash(python3 tests/verifier_tickets_portail.py)",
-      "Bash(python3 tests/verifier_tickets_portail.py *)"
+      "Bash(python3 tests/verifier_tickets_portail.py *)",
+      "mcp__atlassian__getJiraIssue",
+      "mcp__atlassian__searchJiraIssuesUsingJql",
+      "mcp__atlassian__listJiraProjects"
     ],
     "deny": [
       "Bash(rm *)",
@@ -44,13 +47,20 @@
       "Write(./essais/**)",
       "Edit(./essais/**)",
       "Write(./donnees/**)",
-      "Edit(./donnees/**)"
+      "Edit(./donnees/**)",
+      "mcp__atlassian__deleteJiraIssue",
+      "mcp__atlassian__deleteJiraComment"
     ],
     "ask": [
-      "mcp__jira-simule__creer_ticket"
+      "mcp__jira-simule__creer_ticket",
+      "mcp__atlassian__createJiraIssue",
+      "mcp__atlassian__editJiraIssue",
+      "mcp__atlassian__transitionJiraIssue",
+      "mcp__atlassian__addOrEditJiraIssueComment"
     ]
   },
   "enabledMcpjsonServers": [
+    "atlassian",
     "verifier-valeur",
     "abibas-sql",
     "jira-simule"
