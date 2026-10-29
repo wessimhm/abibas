@@ -22,14 +22,26 @@ abibas/
 ├── mcp/                      le code des serveurs MCP
 ├── connaissances/            la base de connaissances, en Markdown : ce que l’IA lit
 ├── originaux/                les mêmes documents en Word et Excel, pour les humains
-├── essais/                   le tableau de résultats et le brouillon à vérifier (Markdown, Word, Excel)
+├── entrees/                  ce qui arrive et doit être traité : courriels, portail client, résultats
+├── essais/                   l’essai en cours : le tableau de résultats et le brouillon à vérifier
 ├── donnees/                  la base du labo (SQLite) et le Jira simulé
 ├── outils/                   les petits scripts : lire un .docx, calculer un devis…
 ├── tests/                    les vérifications automatiques
-├── portail-client/           les signalements des clubs (pour la démo D10)
-├── arrivee/                  la boîte aux lettres de la boucle
 └── travail/                  le seul endroit où Claude écrit
 ```
+
+## Le rangement : chaque fichier à sa place
+
+Quatre questions suffisent pour savoir où ranger un fichier :
+
+| Le fichier… | Il va dans | Exemple |
+|---|---|---|
+| reste vrai demain (une règle, une méthode, une spec) | `connaissances/`, en Markdown | le glossaire, la fiche client |
+| vient d’arriver et doit être traité | `entrees/` | un courriel, un signalement |
+| est un chiffre qu’on filtre ou qu’on compare | `donnees/`, via un MCP | les résultats d’essai, les tickets |
+| est produit par l’IA | `travail/` | un rapport, une offre, un ticket |
+
+Un courriel n’entre jamais dans la base : il arrive dans `entrees/`, on le traite, et seul ce qu’il décide (un accord, un nouveau contact) est reporté dans la fiche client.
 
 ## Chaque pièce, en une phrase
 

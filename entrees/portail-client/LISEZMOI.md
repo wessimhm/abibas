@@ -1,4 +1,4 @@
-# portail-client/
+# entrees/portail-client/
 
 Démo D10, partie B : la page « Signalements » du portail client de la Ligue de foot de Belmont (fictive), exportée le 28 octobre 2026. Les entraîneurs des clubs y signalent les ballons à problème.
 

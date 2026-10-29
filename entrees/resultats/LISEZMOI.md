@@ -1,4 +1,4 @@
-# arrivee/
+# entrees/resultats/
 
 Dossier « boîte aux lettres » pour la démo de la boucle (D8, /loop).
 
@@ -9,4 +9,4 @@ Au passage suivant, la boucle le lit, compare chaque valeur à SPEC-LFB-BAL-01 r
 
 Ce fichier LISEZMOI.md n’est pas un tableau de résultats : la boucle doit l’ignorer.
 
-Après la démo : vider arrivee/ (sauf ce fichier) et supprimer journal-essais.md à la main.
+Après la démo : vider entrees/resultats/ (sauf ce fichier) et supprimer journal-essais.md à la main.

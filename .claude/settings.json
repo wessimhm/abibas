@@ -39,6 +39,8 @@
       "Edit(./connaissances/**)",
       "Write(./originaux/**)",
       "Edit(./originaux/**)",
+      "Write(./entrees/**)",
+      "Edit(./entrees/**)",
       "Write(./essais/**)",
       "Edit(./essais/**)",
       "Write(./donnees/**)",

@@ -1,9 +1,9 @@
 ---
 description: Prépare une offre d'essais à partir d'un courriel client et de la grille tarifaire 2026
-argument-hint: "[courriel, par exemple « Courriel Ligue de foot de Belmont - demande offre serie 2 »]"
+argument-hint: "[courriel, par exemple « Courriel Ligue de Belmont - demande offre serie 2 »]"
 ---
 
-Prépare l'offre pour la demande $ARGUMENTS (dans `connaissances/1-clients/` ; par défaut le courriel série 2 de la Ligue de foot de Belmont) avec le skill `devis-abibas` :
+Prépare l'offre pour la demande $ARGUMENTS (dans `entrees/courriels/` ; par défaut le courriel série 2 de la Ligue de foot de Belmont) avec le skill `devis-abibas` :
 
 1. Lis le courriel : essais demandés, nombre de spécimens, délai souhaité en jours ouvrables.
 2. Calcule avec `python3 outils/calcul_devis.py` (jamais de tête). Si le MCP est disponible, recoupe avec l'outil `calculer_devis`.

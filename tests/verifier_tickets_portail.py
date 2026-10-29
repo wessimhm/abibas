@@ -5,7 +5,7 @@ Vérificateur déterministe des tickets créés à partir du portail client (dé
 Usage :
     python3 tests/verifier_tickets_portail.py            # lit donnees/jira-simule.json
 
-Attendu (portail-client/signalements-belmont.md) :
+Attendu (entrees/portail-client/signalements-belmont.md) :
 - SIG-2031 et SIG-2034 (ballon 212, perte de pression) : UN seul ticket, qui cite les deux signalements, S/N L-0350 ;
 - SIG-2032 (réservation pour le tournoi des jeunes) : aucun ticket ;
 - SIG-2033 (ballon 87, odeur chimique, mains irritées) : un ticket, gravité Critique à confirmer, S/N non inventé ;

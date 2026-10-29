@@ -9,8 +9,8 @@ allowed-tools: Read, Grep, Glob, mcp__jira-simule__chercher_tickets, mcp__jira-s
 Feux : lire 🟢 ; chercher les cas semblables 🟢 (pré-autorisé) ; créer le ticket en « À trier » 🟠 (vous confirmez l’appel) ; répondre au client 🔴 ✋ (brouillon seulement).
 
 ## Les sources
-- Les courriels : `connaissances/1-clients/Courriel *.md`.
-- Le portail client : `portail-client/signalements-belmont.md` (la page `.html` montre la même chose au client).
+- Les courriels : `entrees/courriels/Courriel *.md`.
+- Le portail client : `entrees/portail-client/signalements-belmont.md` (la page `.html` montre la même chose au client).
 - Le format : `connaissances/3-processus/Modele de ticket qualite.md` (16 champs obligatoires).
 - La spec, pour l’exigence possiblement touchée : `connaissances/1-clients/SPEC-LFB-BAL-01 rev C - Specification ballon.md`.
 
