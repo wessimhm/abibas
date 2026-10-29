@@ -1,0 +1,88 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Grep",
+      "Glob",
+      "Bash(python3 tests/verifier_rapport.py)",
+      "Bash(python3 tests/verifier_rapport.py *)",
+      "Bash(python3 tests/verifier_devis.py)",
+      "Bash(python3 tests/verifier_devis.py *)",
+      "Bash(python3 outils/lire_document.py *)",
+      "Bash(python3 outils/md_vers_docx.py *)",
+      "Bash(python3 outils/calcul_devis.py *)",
+      "Write(./travail/**)",
+      "Edit(./travail/**)",
+      "Write(./journal-essais.md)",
+      "Edit(./journal-essais.md)",
+      "mcp__verifier-valeur__verifier_valeur",
+      "mcp__verifier-valeur__lister_exigences",
+      "mcp__verifier-valeur__chercher_nc",
+      "mcp__verifier-valeur__calculer_devis",
+      "mcp__verifier-valeur__lire_resultats",
+      "mcp__abibas-sql__requete_sql",
+      "mcp__jira-simule__chercher_tickets",
+      "mcp__jira-simule__lister_tickets",
+      "Bash(python3 tests/verifier_ticket.py)",
+      "Bash(python3 tests/verifier_ticket.py *)",
+      "Bash(python3 tests/verifier_tickets_portail.py)",
+      "Bash(python3 tests/verifier_tickets_portail.py *)"
+    ],
+    "deny": [
+      "Bash(rm *)",
+      "Bash(rmdir *)",
+      "Bash(del *)",
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(scp *)",
+      "Write(./base-abibas/**)",
+      "Edit(./base-abibas/**)",
+      "Write(./essais/**)",
+      "Edit(./essais/**)",
+      "Write(./donnees/**)",
+      "Edit(./donnees/**)"
+    ],
+    "ask": [
+      "mcp__jira-simule__creer_ticket"
+    ]
+  },
+  "enabledMcpjsonServers": [
+    "verifier-valeur",
+    "abibas-sql",
+    "jira-simule"
+  ],
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PROJECT_DIR}/.claude/hooks/garde.py\""
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PROJECT_DIR}/.claude/hooks/apres_ecriture.py\""
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PROJECT_DIR}/.claude/hooks/fin.py\""
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+travail/*
+!travail/.gitkeep
+donnees/journal-mcp.log
+journal-essais.md
+.DS_Store

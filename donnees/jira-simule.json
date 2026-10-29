@@ -1,0 +1,49 @@
+{
+  "projet": "QUAL",
+  "tickets": [
+    {
+      "cle": "QUAL-41",
+      "projet": "QUAL",
+      "type": "Réclamation client",
+      "resume": "Belmont · ballon 77 · logo effacé après 3 matchs",
+      "client": "Ligue de foot de Belmont, saison 2027",
+      "produit": "Ballon d’entraînement LP-300",
+      "sn": "S/N K-1207",
+      "symptome": "Logo de la ligue effacé après 3 matchs ; le ballon garde sa pression.",
+      "date_incident": "2026-08-12",
+      "nb_unites": 1,
+      "unites": "ballon 77",
+      "gravite": "Mineure (confirmée)",
+      "exigence": "Aucune exigence de SPEC-LFB-BAL-01",
+      "cas_semblables": "Aucun",
+      "pieces_jointes": "photo-logo.jpg",
+      "statut": "Clôturé",
+      "etiquettes": [],
+      "demandeur": "Isabelle Roy",
+      "resolution": "Nouvelle encre d’impression du logo.",
+      "cree_le": "2026-08-13T09:20:00"
+    },
+    {
+      "cle": "QUAL-42",
+      "projet": "QUAL",
+      "type": "Réclamation client",
+      "resume": "Belmont · ballon 15 · couture qui prend l’eau après lavage",
+      "client": "Ligue de foot de Belmont, saison 2027",
+      "produit": "Ballon LP-400",
+      "sn": "S/N K-0388",
+      "symptome": "Le ballon est lourd et mou après un lavage au jet ; l’eau entre par une couture près de la valve.",
+      "date_incident": "2026-06-03",
+      "nb_unites": 1,
+      "unites": "ballon 15",
+      "gravite": "Majeure (confirmée)",
+      "exigence": "EX-03 (absorption d’eau)",
+      "cas_semblables": "NC-2025-021 (prise d’eau à une couture, LP-400)",
+      "pieces_jointes": "photo-couture.jpg",
+      "statut": "Clôturé",
+      "etiquettes": [],
+      "demandeur": "Isabelle Roy",
+      "resolution": "Remplacement par un ballon thermocollé (action de NC-2025-021).",
+      "cree_le": "2026-06-04T14:05:00"
+    }
+  ]
+}

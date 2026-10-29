@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "verifier-valeur": {
+      "command": "python3",
+      "args": [
+        "mcp/verifier_valeur_server.py"
+      ]
+    },
+    "abibas-sql": {
+      "command": "python3",
+      "args": [
+        "mcp/abibas_sql_server.py"
+      ]
+    },
+    "jira-simule": {
+      "command": "python3",
+      "args": [
+        "mcp/jira_simule_server.py"
+      ]
+    }
+  }
+}
