@@ -19,13 +19,15 @@ allowed-tools: Read, Grep, Glob, Write, Edit, Bash(python3 outils/lire_document.
    - ligne 2 : `<!-- source : <chemin du document d’origine> -->` (le script s’en sert) ;
    - `# <titre>`, puis la ligne en italique (type, révision, date, propriétaire), telle qu’écrite ;
    - ligne suivante : `> Brouillon rédigé avec l’aide de l’IA, à vérifier.` ;
-   - chaque titre du document devient `##`, chaque liste une liste, chaque tableau un tableau Markdown, une ligne par ligne ;
+   - chaque titre du document devient `##`, chaque tableau un tableau Markdown, une ligne par ligne ;
+   - une liste numérotée se renumérote 1., 2., 3. (l’outil affiche « 1. » partout : la numérotation de Word n’est pas dans le texte ; le contrôle ignore ces numéros) ;
    - un en-tête de tableau sur deux lignes (cellules fusionnées) devient une seule ligne : « Étalonnage · dernier », « Étalonnage · prochain » ;
    - un fichier Excel : une section `##` par feuille, un tableau par feuille.
 5. **Recopier, ne pas réécrire.** Chaque valeur à l’identique : virgule décimale, espace des milliers, unité, date telle qu’écrite. Ne rien résumer, reformuler, convertir ni compléter. Une valeur illisible : `[À COMPLÉTER]`.
-6. **Dire ce qui ne passe pas.** Là où l’outil affiche `[IMAGE NON LUE]`, écrire `[À COMPLÉTER : image non convertie, <sa légende>]`. Ne jamais décrire une image qu’on n’a pas vue.
+6. **Dire ce qui ne passe pas.** Là où l’outil affiche `[IMAGE NON LUE]`, écrire `[À COMPLÉTER : image non convertie, <sa légende>]`, et garder la ligne de légende telle quelle. Ne jamais décrire une image qu’on n’a pas vue.
 7. **Choisir le dossier** : `1-clients` (spécifications, fiches client), `2-savoir` (produit, méthodes, rapports validés, registres, leçons), `3-processus` (procédures, modèles, plans d’essai), `4-regles` (glossaire, politiques), `5-prix` (tarifs). En cas de doute, demander.
-8. **Enregistrer** dans `travail/a-ajouter/<dossier>/<même nom que le document>.md`. Jamais dans `connaissances/` : un humain relit, puis déplace la fiche.
+8. **Enregistrer** avec Write (il crée les dossiers) dans `travail/a-ajouter/<dossier>/<nom du fichier d’origine>.md` : le nom du fichier, pas le titre intérieur. Jamais dans `connaissances/` : un humain relit, puis déplace la fiche.
+9. **Consigner** dans `travail/DECISIONS.md` chaque choix non évident (en-tête fusionné, dossier choisi, valeur illisible), comme le demande le CLAUDE.md.
 
 ## Avant de dire « terminé »
 Le contrôle se relance tout seul après l’écriture (hook). Lancer aussi :
