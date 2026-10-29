@@ -119,7 +119,9 @@ allowed-tools: Read, Grep, Bash(python3 .claude/skills/devis-abibas/scripts/calc
 4. Vérifier avec python3 tests/verifier_devis.py.
 ```
 
-Les skills d’Abibas : `rapport-essai`, `planifier-rapport`, `verifier-spec`, `verifier-rapport`, `revue-client`, `devis-abibas`, `ticket-qualite`.
+Les skills d’Abibas : `rapport-essai`, `planifier-rapport`, `verifier-spec`, `verifier-rapport`, `revue-client`, `devis-abibas`, `ticket-qualite`, `ajouter-connaissance`.
+
+`ajouter-connaissance` fait entrer un Word ou un Excel dans la base : il le lit avec `outils/lire_document.py`, écrit la fiche Markdown dans `travail/a-ajouter/<dossier>/`, puis son script vérifie que chaque nombre du document est dans la fiche, et rien de plus (le hook `apres_ecriture.py` le relance tout seul). Un humain relit la fiche, puis la déplace dans `connaissances/`. Exemple à convertir : `originaux/3-processus/PR-LAB-04 - Etalonnage des instruments.docx`, qui n’a pas encore sa fiche.
 
 ## Les commandes : des raccourcis
 

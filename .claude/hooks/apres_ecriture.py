@@ -2,7 +2,8 @@
 """Hook PostToolUse (Write, Edit) : après chaque modification dans travail/,
 relance automatiquement le test déterministe qui correspond :
 - un rapport (travail/RA-*.md ou .docx) : tests/verifier_rapport.py ;
-- une offre (travail/offre*.md ou .docx) : tests/verifier_devis.py.
+- une offre (travail/offre*.md ou .docx) : tests/verifier_devis.py ;
+- une fiche de connaissance (travail/a-ajouter/…/*.md) : le contrôle du skill ajouter-connaissance.
 S'il échoue, code 2 : le résultat est montré à Claude, qui doit corriger."""
 import json
 import os
@@ -19,7 +20,9 @@ norm = chemin.replace("\\", "/")
 nom = os.path.basename(norm).lower()
 if "/travail/" not in "/" + norm or not nom.endswith((".md", ".docx")):
     sys.exit(0)
-if nom.startswith("ra-"):
+if "/travail/a-ajouter/" in "/" + norm and nom.endswith(".md"):
+    test = os.path.join(".claude", "skills", "ajouter-connaissance", "scripts", "verifier_conversion.py")
+elif nom.startswith("ra-"):
     test = "verifier_rapport.py"
 elif nom.startswith("offre"):
     test = "verifier_devis.py"
@@ -27,8 +30,10 @@ else:
     sys.exit(0)
 
 env = dict(os.environ, PYTHONIOENCODING="utf-8")
-r = subprocess.run([sys.executable, os.path.join(racine, "tests", test), chemin],
+script = os.path.join(racine, test) if os.sep in test or "/" in test else os.path.join(racine, "tests", test)
+r = subprocess.run([sys.executable, script, chemin],
                    capture_output=True, text=True, encoding="utf-8", errors="replace", cwd=racine, env=env)
+test = os.path.basename(test)
 if r.returncode != 0:
     echecs = "\n".join(l for l in r.stdout.splitlines() if l.startswith(("FAIL", "RÉSULTAT", "ERREUR")))
     print(f"Test automatique après modification ({test}) : échec.\n" + echecs, file=sys.stderr)
