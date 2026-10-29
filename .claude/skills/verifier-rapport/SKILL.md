@@ -8,7 +8,7 @@ description: "Vérifie un rapport d’essai complet avec quatre relecteurs en pa
 Lecture seule : aucun relecteur ne modifie le rapport. L’ingénieure décide quoi corriger.
 
 ## La méthode
-1. Identifier le rapport (par défaut : `essais/texte/RA-L500-01 - Rapport d essai LP-500 (brouillon a verifier).md`).
+1. Identifier le rapport (par défaut : `essais/RA-L500-01 - Rapport d essai LP-500 (brouillon a verifier).md`).
 2. Lancer **en parallèle**, dans un seul message, quatre sous-agents avec l’outil Agent :
    - `verificateur-coherence` : valeurs identiques au tableau de résultats et à la fiche produit, révision de la spec, S/N, durées, comptages ; il lance aussi `python3 tests/verifier_rapport.py`.
    - `verificateur-conformite` : chaque valeur contre son critère, avec le MCP `verifier_valeur` ; exigences sans résultat ; unités.

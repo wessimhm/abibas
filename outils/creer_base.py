@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Crée la base de données du labo : donnees/abibas-labo.db (SQLite).
 
-Mêmes données que les fichiers Excel de base-abibas/ et essais/ (tout est fictif).
+Mêmes données que les fichiers Excel de connaissances/ et essais/ (tout est fictif).
 Tables :
     exigences(id, essai, parametre, operateur, valeur_critere, unite, revision)
     resultats(id, exigence, parametre, valeur, unite, sn, remarque)

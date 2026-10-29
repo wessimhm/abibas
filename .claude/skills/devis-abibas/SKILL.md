@@ -6,9 +6,9 @@ description: "Prépare une offre d’essais Abibas à partir d’une demande cli
 # Préparer une offre d’essais
 
 ## Les sources
-- La demande : par exemple `base-abibas/texte/1-clients/Courriel Ligue de foot de Belmont - demande offre serie 2.md`.
-- Les prix : `base-abibas/5-prix/Grille tarifaire 2026.xlsx` (texte : `base-abibas/texte/5-prix/Grille tarifaire 2026.md`).
-- Le format : `base-abibas/texte/3-processus/Modele d offre.md`.
+- La demande : par exemple `connaissances/1-clients/Courriel Ligue de foot de Belmont - demande offre serie 2.md`.
+- Les prix : `originaux/5-prix/Grille tarifaire 2026.xlsx` (texte : `connaissances/5-prix/Grille tarifaire 2026.md`).
+- Le format : `connaissances/3-processus/Modele d offre.md`.
 - La spec citée : SPEC-LFB-BAL-01 rév. C (LA-11 : la révision exacte).
 
 ## La méthode

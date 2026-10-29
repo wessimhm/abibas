@@ -20,8 +20,9 @@ abibas/
 │   └── settings.json         les permissions : autorisé, interdit, demander
 ├── .mcp.json                 les connexions aux outils maison (MCP)
 ├── mcp/                      le code des serveurs MCP
-├── base-abibas/              la base de connaissances, en 5 dossiers
-├── essais/                   le tableau de résultats et le brouillon à vérifier
+├── connaissances/            la base de connaissances, en Markdown : ce que l’IA lit
+├── originaux/                les mêmes documents en Word et Excel, pour les humains
+├── essais/                   le tableau de résultats et le brouillon à vérifier (Markdown, Word, Excel)
 ├── donnees/                  la base du labo (SQLite) et le Jira simulé
 ├── outils/                   les petits scripts : lire un .docx, calculer un devis…
 ├── tests/                    les vérifications automatiques
@@ -85,7 +86,7 @@ allowed-tools: Read, Grep, Bash(python3 outils/calcul_devis.py *)
 ---
 1. Lire la demande et lister les essais demandés, le nombre de spécimens et le délai.
 2. Calculer avec `python3 outils/calcul_devis.py`, jamais de tête.
-3. Rédiger l’offre au format de `base-abibas/texte/3-processus/Modele d offre.md`.
+3. Rédiger l’offre au format de `connaissances/3-processus/Modele d offre.md`.
 4. Vérifier avec `python3 tests/verifier_devis.py`.
 ```
 

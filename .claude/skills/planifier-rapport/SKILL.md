@@ -9,7 +9,7 @@ Ne rien rédiger à cette étape : produire un plan, puis s’arrêter pour vali
 
 ## Le plan contient
 1. **Le but** du rapport, en une phrase.
-2. **Les sources** utilisées (fichiers de `base-abibas/texte/` et `essais/texte/`) et celles qui manquent.
+2. **Les sources** utilisées (fichiers de `connaissances/` et `essais/`) et celles qui manquent.
 3. **Les sections** prévues, selon le modèle de rapport : Objet, Spécimen, Résultats (EX-01 à EX-05), Déviations, Conclusion, Signatures.
 4. **Pour chaque exigence** : le critère de SPEC-LFB-BAL-01 rév. C, la méthode (MET-01 à MET-05), les lignes du tableau concernées.
 5. **Les vérifications prévues** : quels appels à `verifier_valeur`, quel test final (`tests/verifier_rapport.py`).

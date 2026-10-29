@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Calcule un devis d'essais à partir de base-abibas/5-prix/Grille tarifaire 2026.xlsx.
+"""Calcule un devis d'essais à partir de originaux/5-prix/Grille tarifaire 2026.xlsx.
 
 Le calcul est fait par ce script, jamais de tête. Même entrée, même total.
 
@@ -30,7 +30,7 @@ except ImportError:
     sys.exit(3)
 
 RACINE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-GRILLE = os.path.join(RACINE, "base-abibas", "5-prix", "Grille tarifaire 2026.xlsx")
+GRILLE = os.path.join(RACINE, "originaux", "5-prix", "Grille tarifaire 2026.xlsx")
 TAUX_SPECIMEN = 0.35
 TAUX_URGENCE = 0.20
 SEUIL_URGENCE = 10  # jours ouvrables

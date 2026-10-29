@@ -14,4 +14,4 @@ Cette règle se charge seulement quand Claude lit ou écrit un rapport (dans `tr
 - Unités : °C (jamais °F), cm, g, bar, %, km/h, min. Virgule décimale, une espace entre la valeur et l'unité.
 - « Conforme », « non conforme » et « qualifié » sont réservés à Julie Tremblay. Sinon : « dans le critère » ou « hors critère ».
 - Phrases courtes, voix active.
-- Source complète : `base-abibas/texte/4-regles/Glossaire et regles de redaction.md`.
+- Source complète : `connaissances/4-regles/Glossaire et regles de redaction.md`.

@@ -2,7 +2,7 @@
 """Hook PreToolUse : bloque les actions à risque AVANT qu'elles aient lieu.
 - Bash : suppression (rm, rmdir, del, Remove-Item, -delete, rmtree…), envoi ou réseau
   (curl, wget, mail, sendmail, scp, ftp, Invoke-WebRequest).
-- Write / Edit : toute écriture dans base-abibas/ (la base de connaissances), essais/ (les
+- Write / Edit : toute écriture dans connaissances/ (la base de connaissances), originaux/ (les Word et Excel d’origine), essais/ (les
   données d'essai brutes) ou donnees/ (la base de données du labo). Ces dossiers se lisent, ils ne se modifient pas depuis l'IA.
 Code 2 = action bloquée ; le message (stderr) est renvoyé à Claude."""
 import json
@@ -19,7 +19,7 @@ entree = d.get("tool_input", {}) or {}
 SUPPRESSION_ENVOI = (r"(^|[\s;&|(`])(rm|rmdir|del|erase|rd|Remove-Item|unlink|shred|curl|wget|mail|sendmail|"
                      r"mutt|scp|sftp|ftp|Invoke-WebRequest|Invoke-RestMethod|Send-MailMessage)(\s|$)"
                      r"|\s-delete\b|rmtree|os\.remove|os\.unlink|\.unlink\(")
-PROTEGES = {"base-abibas", "essais", "donnees"}
+PROTEGES = {"connaissances", "originaux", "essais", "donnees"}
 
 if outil == "Bash":
     cmd = entree.get("command", "")
@@ -31,6 +31,6 @@ elif outil in ("Write", "Edit", "MultiEdit"):
     chemin = entree.get("file_path", "")
     parties = [p.lower() for p in re.split(r"[\\/]", chemin)]
     if PROTEGES & set(parties):
-        print("Bloqué : base-abibas/, essais/ et donnees/ sont en lecture seule. Écrivez dans travail/.", file=sys.stderr)
+        print("Bloqué : connaissances/, originaux/, essais/ et donnees/ sont en lecture seule. Écrivez dans travail/.", file=sys.stderr)
         sys.exit(2)
 sys.exit(0)

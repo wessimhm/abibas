@@ -6,11 +6,11 @@ description: "Rédige un rapport d’essai LP-500 (ou une section Résultats) au
 # Rédiger un rapport d’essai LP-500
 
 ## Les sources (et seulement elles)
-- Valeurs mesurées : `essais/texte/Tableau de résultats LP-500 (S-N L-0042).md`
-- Exigences : `base-abibas/texte/1-clients/SPEC-LFB-BAL-01 rev C - Specification ballon.md`
-- Format : `base-abibas/texte/3-processus/Modele de rapport d essai.md` ; exemple de style : `base-abibas/texte/2-savoir/RA-L400-03 - Rapport d essai LP-400 (exemple valide).md`
-- Fiche produit : `base-abibas/texte/2-savoir/Fiche produit LP-500.md`
-- Vocabulaire et unités : `base-abibas/texte/4-regles/Glossaire et regles de redaction.md`
+- Valeurs mesurées : `essais/Tableau de résultats LP-500 (S-N L-0042).md`
+- Exigences : `connaissances/1-clients/SPEC-LFB-BAL-01 rev C - Specification ballon.md`
+- Format : `connaissances/3-processus/Modele de rapport d essai.md` ; exemple de style : `connaissances/2-savoir/RA-L400-03 - Rapport d essai LP-400 (exemple valide).md`
+- Fiche produit : `connaissances/2-savoir/Fiche produit LP-500.md`
+- Vocabulaire et unités : `connaissances/4-regles/Glossaire et regles de redaction.md`
 - Utile : leçons apprises (LA-07, LA-09, LA-11, LA-12) et registre des non-conformités.
 
 ## La méthode
