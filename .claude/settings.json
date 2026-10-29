@@ -11,6 +11,7 @@
       "Bash(python3 outils/lire_document.py *)",
       "Bash(python3 outils/md_vers_docx.py *)",
       "Bash(python3 outils/calcul_devis.py *)",
+      "Bash(python3 .claude/skills/devis-abibas/scripts/calcul_devis.py *)",
       "Write(./travail/**)",
       "Edit(./travail/**)",
       "Write(./journal-essais.md)",

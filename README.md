@@ -25,7 +25,7 @@ abibas/
 ├── entrees/                  ce qui arrive et doit être traité : courriels, portail client, résultats
 ├── essais/                   l’essai en cours : le tableau de résultats et le brouillon à vérifier
 ├── donnees/                  la base du labo (SQLite), le Jira simulé et l’import Jira de test
-├── outils/                   les petits scripts : lire un .docx, calculer un devis…
+├── outils/                   les petits scripts : lire un .docx, créer la base…
 ├── tests/                    les vérifications automatiques
 └── travail/                  le seul endroit où Claude écrit
 ```
@@ -88,18 +88,31 @@ Un skill, c’est une méthode de travail que Claude applique quand la demande c
 4. **Écrire la méthode** en dessous, en étapes courtes ; ranger le détail dans `references/`, les scripts dans `scripts/`, les modèles dans `assets/`.
 5. **Tester avec vos vraies phrases** (« fais l’offre pour Belmont ») : s’il ne se déclenche pas, ajoutez ces mots à la description.
 
-Un exemple, en version simplifiée :
+Un skill peut être plus qu’un fichier. Celui des offres, `devis-abibas`, est un dossier :
+
+```text
+devis-abibas/
+├── SKILL.md                     la méthode : lue quand la tâche correspond
+├── references/
+│   └── cas-particuliers.md      le savoir détaillé : lu seulement si un cas l’exige
+├── scripts/
+│   └── calcul_devis.py          le calcul : exécuté, jamais lu
+└── assets/
+    └── gabarit-offre.md         le gabarit : copié dans le résultat
+```
+
+Son en-tête, en version simplifiée :
 
 ```markdown
 ---
 name: devis-abibas
 description: Prépare une offre d’essais Abibas à partir d’une demande client et de la grille tarifaire 2026. À utiliser pour toute demande de devis, d’offre ou de prix.
-allowed-tools: Read, Grep, Bash(python3 outils/calcul_devis.py *)
+allowed-tools: Read, Grep, Bash(python3 .claude/skills/devis-abibas/scripts/calcul_devis.py *)
 ---
-1. Lire la demande et lister les essais demandés, le nombre de spécimens et le délai.
-2. Calculer avec `python3 outils/calcul_devis.py`, jamais de tête.
-3. Rédiger l’offre au format de `connaissances/3-processus/Modele d offre.md`.
-4. Vérifier avec `python3 tests/verifier_devis.py`.
+1. Lire la demande. Si un point n’est pas simple, lire references/cas-particuliers.md.
+2. Calculer avec scripts/calcul_devis.py, jamais de tête.
+3. Copier assets/gabarit-offre.md dans travail/ et le remplir.
+4. Vérifier avec python3 tests/verifier_devis.py.
 ```
 
 Les skills d’Abibas : `rapport-essai`, `planifier-rapport`, `verifier-spec`, `verifier-rapport`, `revue-client`, `devis-abibas`, `ticket-qualite`.
