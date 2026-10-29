@@ -82,6 +82,10 @@ Un skill, c’est une méthode de travail que Claude applique quand la demande c
 
 ### Comment on fait un skill, en 5 étapes
 
+**La voie recommandée : demander à skill-creator**, un skill officiel d’Anthropic qui écrit des skills. Dans Claude Code : `/plugin marketplace add anthropics/skills`, puis `/plugin install example-skills@anthropic-agent-skills` (il est déjà inclus dans claude.ai). Ensuite : « Avec skill-creator, fais un skill qui… ». Il pose ses questions, écrit le dossier et teste le déclenchement. Vous relisez avant de l’adopter.
+
+Ce qu’il fait pour vous, et ce qu’on peut aussi faire à la main :
+
 1. **Repérer ce qu’on répète.** Une consigne qu’on redonne à l’IA deux fois devient un skill.
 2. **Créer le dossier** `.claude/skills/<nom>/` et, dedans, un fichier `SKILL.md`.
 3. **Écrire l’en-tête** : `name` (minuscules et traits d’union, le même que le dossier) et `description` (ce que fait le skill, **et quand l’utiliser**, avec les mots que l’équipe emploie vraiment).
