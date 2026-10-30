@@ -20,14 +20,14 @@ abibas/
 │   └── settings.json         les permissions : autorisé, interdit, demander
 ├── .mcp.json                 les connexions MCP : Jira (Atlassian) et les outils maison
 ├── mcp/                      le code des serveurs MCP
-├── connaissances/            la base de connaissances, en Markdown : ce que l’IA lit
+├── connaissances/            la base de connaissances, en Markdown : ce que l’IA lit (elle peut y ajouter une fiche, jamais modifier une fiche validée)
 ├── originaux/                les mêmes documents en Word et Excel, pour les humains
 ├── entrees/                  ce qui arrive et doit être traité : courriels, portail client, résultats
 ├── essais/                   l’essai en cours : le tableau de résultats et le brouillon à vérifier
 ├── donnees/                  la base du labo (SQLite), le Jira simulé et l’import Jira de test
 ├── outils/                   les petits scripts : lire un .docx, créer la base…
 ├── tests/                    les vérifications automatiques
-└── travail/                  le seul endroit où Claude écrit
+└── travail/                  là où Claude écrit ses productions (rapports, offres, tickets)
 ```
 
 ## Le rangement : chaque fichier à sa place
