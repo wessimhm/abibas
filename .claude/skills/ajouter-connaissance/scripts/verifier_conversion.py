@@ -3,7 +3,7 @@
 Contrôle déterministe d'une fiche de connaissance convertie depuis un Word ou un Excel.
 
 Usage :
-    python3 .claude/skills/ajouter-connaissance/scripts/verifier_conversion.py "travail/a-ajouter/3-processus/PR-LAB-04 - Etalonnage des instruments.md"
+    python3 .claude/skills/ajouter-connaissance/scripts/verifier_conversion.py "connaissances/3-processus/PR-LAB-04 - Etalonnage des instruments.md"
     (le document d'origine est lu dans la ligne <!-- source : ... --> de la fiche,
      ou donné en second argument)
 
