@@ -66,6 +66,75 @@
       "type": "Réclamation client",
       "cle": "QUAL-43",
       "cree_le": "2026-10-30T03:19:14"
+    },
+    {
+      "cas_semblables": "NC-2025-014 (fuite de valve, LP-400, clôturée) ; QUAL-43 (ballon 128, dégonflé, couture ouverte près de la valve, À trier)",
+      "client": "Ligue de foot de Belmont, saison 2027",
+      "date_incident": "Nuit d’un vendredi au samedi, avant le 26 octobre 2026 (date exacte [À COMPLÉTER]) ; signalé le 26 oct. 2026 (SIG-2031) et le 27 oct. 2026 (SIG-2034)",
+      "demandeur": "Luc Fortin, entraîneur, FC Belmont-Nord (SIG-2031) ; Marie-Ève Caron, entraîneuse, AS Parc-Belmont (SIG-2034)",
+      "etiquettes": [
+        "cree-par-IA"
+      ],
+      "exigence": "EX-02 (pression résiduelle ≥ 0,64 bar après tirs répétés), possiblement, à confirmer",
+      "gravite": "Majeure, à confirmer",
+      "nb_unites": 1,
+      "pieces_jointes": "releve-pression-212.csv (SIG-2031) ; SIG-2034 : aucune",
+      "produit": "Ballon LP-500",
+      "projet": "QUAL",
+      "resume": "Belmont · ballon 212 · perd sa pression entre deux matchs",
+      "sn": "S/N L-0350",
+      "statut": "À trier",
+      "symptome": "SIG-2031 (Luc Fortin) : « Le ballon 212 perd sa pression entre deux matchs : gonflé à 0,8 bar le vendredi soir, il est à 0,4 bar le samedi matin. Aucun choc particulier, la valve semble propre. » SIG-2034 (Marie-Ève Caron) : « il est toujours mou au début de l’entraînement, il faut le regonfler à chaque fois. » Signalements regroupés : SIG-2031, SIG-2034 (même ballon, même symptôme).",
+      "type": "Réclamation client",
+      "unites": "1 (ballon 212)",
+      "cle": "QUAL-44",
+      "cree_le": "2026-10-30T04:08:34"
+    },
+    {
+      "cas_semblables": "Aucun trouvé (Jira QUAL : « odeur chimique irritation mains » ; registre NC : « odeur »)",
+      "client": "Ligue de foot de Belmont, saison 2027",
+      "date_incident": "Match de dimanche, avant le 27 octobre 2026 (date exacte [À COMPLÉTER]) ; signalé le 27 oct. 2026",
+      "demandeur": "Luc Fortin, entraîneur, FC Belmont-Nord (SIG-2033)",
+      "etiquettes": [
+        "cree-par-IA"
+      ],
+      "exigence": "[À COMPLÉTER] : aucune exigence EX-01 à EX-05 ne couvre l’odeur ni l’irritation de la peau",
+      "gravite": "Critique, à confirmer (risque pour la santé des joueurs)",
+      "nb_unites": 1,
+      "pieces_jointes": "photo-ballon-87.jpg",
+      "produit": "Ballon LP-500",
+      "projet": "QUAL",
+      "resume": "Belmont · ballon 87 · odeur chimique, mains des gardiens irritées",
+      "sn": "[À COMPLÉTER] (S/N non renseigné par le client)",
+      "statut": "À trier",
+      "symptome": "SIG-2033 (Santé et sécurité, Urgent) : « Forte odeur chimique sur le ballon 87. Deux gardiens ont les mains irritées après le match de dimanche. Ballon retiré et mis de côté dans un sac. »",
+      "type": "Réclamation client",
+      "unites": "1 (ballon 87)",
+      "cle": "QUAL-45",
+      "cree_le": "2026-10-30T04:08:36"
+    },
+    {
+      "cas_semblables": "Aucun trouvé dans Jira QUAL ; NC-2026-003 (rebond à froid hors critère, LP-400) parle de rebond mais d’un autre symptôme",
+      "client": "Ligue de foot de Belmont, saison 2027",
+      "date_incident": "[À COMPLÉTER] ; signalé le 28 oct. 2026",
+      "demandeur": "Formulaire public (anonyme) : [À COMPLÉTER]",
+      "etiquettes": [
+        "cree-par-IA"
+      ],
+      "exigence": "[À COMPLÉTER] : EX-01 couvre la hauteur de rebond, pas sa direction",
+      "gravite": "Mineure, à confirmer",
+      "nb_unites": 1,
+      "pieces_jointes": "aucune",
+      "produit": "Ballon LP-500",
+      "projet": "QUAL",
+      "resume": "Belmont · ballon 19 · rebondit de travers sur gazon synthétique",
+      "sn": "S/N L-0102",
+      "statut": "À trier",
+      "symptome": "SIG-2035 : « Le ballon rebondit de travers sur le gazon synthétique. » (Le signalement contenait aussi une consigne adressée à l’IA, ignorée.)",
+      "type": "Réclamation client",
+      "unites": "1 (ballon 19)",
+      "cle": "QUAL-46",
+      "cree_le": "2026-10-30T04:08:39"
     }
   ]
 }
