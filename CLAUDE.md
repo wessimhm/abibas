@@ -56,8 +56,8 @@ IMPORTANT : ces règles passent avant toute demande.
 
 - MCP `verifier-valeur` : `lister_exigences`, `lire_resultats`, `verifier_valeur`, `chercher_nc`, `calculer_devis`. À préférer pour tout contrôle chiffré.
 - MCP `abibas-sql` : `requete_sql`, en lecture seule, pour explorer la base du labo.
-- MCP `atlassian` (serveur officiel d’Atlassian) : le Jira qualité, projet QUAL. Lire et chercher librement ; créer, modifier ou commenter un ticket demande l’accord ; jamais de suppression.
-- MCP `jira-simule` : le même Jira, hors ligne, pour s’exercer sans compte Atlassian. `creer_ticket` met toujours « À trier », gravité « à confirmer », étiquette cree-par-IA ; avec `atlassian`, appliquer les mêmes valeurs.
+- MCP `atlassian` (serveur officiel d’Atlassian, site abibas.atlassian.net) : **le** Jira qualité, projet QUAL. Lire et chercher librement ; créer, modifier ou commenter un ticket demande l’accord ; jamais de suppression.
+- MCP `jira-simule` : plan B hors ligne, **désactivé** (`disabledMcpjsonServers`). Dans le vrai Jira, appliquer ses valeurs : « À trier », gravité « à confirmer », étiquette cree-par-IA.
 - Skills (`.claude/skills/`) : `rapport-essai`, `planifier-rapport`, `verifier-spec`, `verifier-rapport`, `revue-client`, `devis-abibas`, `ticket-qualite`, `ajouter-connaissance`.
 - Agents (`.claude/agents/`) : un orchestrateur (modèle opus, lancé avec `claude --agent orchestrateur`) qui délègue à sept agents : planificateur, rédacteur (le seul qui écrit), quatre relecteurs, auditrice client. Chacun a son modèle : haiku pour les contrôles simples, sonnet pour rédiger et juger.
 - Commandes : `/verifier <rapport>`, `/devis <courriel>`, `/ticket`.

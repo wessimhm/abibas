@@ -27,9 +27,18 @@
       "Bash(python3 tests/verifier_ticket.py *)",
       "Bash(python3 tests/verifier_tickets_portail.py)",
       "Bash(python3 tests/verifier_tickets_portail.py *)",
+      "mcp__atlassian__getAccessibleAtlassianResources",
+      "mcp__atlassian__getVisibleJiraProjects",
+      "mcp__atlassian__getJiraProjectIssueTypesMetadata",
+      "mcp__atlassian__getJiraIssueTypeMetaWithFields",
       "mcp__atlassian__getJiraIssue",
       "mcp__atlassian__searchJiraIssuesUsingJql",
-      "mcp__atlassian__listJiraProjects"
+      "mcp__Atlassian__getAccessibleAtlassianResources",
+      "mcp__Atlassian__getVisibleJiraProjects",
+      "mcp__Atlassian__getJiraProjectIssueTypesMetadata",
+      "mcp__Atlassian__getJiraIssueTypeMetaWithFields",
+      "mcp__Atlassian__getJiraIssue",
+      "mcp__Atlassian__searchJiraIssuesUsingJql"
     ],
     "deny": [
       "Bash(rm *)",
@@ -43,20 +52,32 @@
       "Edit(./essais/**)",
       "Edit(./donnees/**)",
       "mcp__atlassian__deleteJiraIssue",
-      "mcp__atlassian__deleteJiraComment"
+      "mcp__atlassian__deleteJiraComment",
+      "mcp__Atlassian__deleteJiraIssue",
+      "mcp__Atlassian__deleteJiraComment"
     ],
     "ask": [
       "mcp__jira-simule__creer_ticket",
       "mcp__atlassian__createJiraIssue",
       "mcp__atlassian__editJiraIssue",
       "mcp__atlassian__transitionJiraIssue",
-      "mcp__atlassian__addOrEditJiraIssueComment"
+      "mcp__atlassian__addCommentToJiraIssue",
+      "mcp__atlassian__addWorklogToJiraIssue",
+      "mcp__atlassian__createIssueLink",
+      "mcp__Atlassian__createJiraIssue",
+      "mcp__Atlassian__editJiraIssue",
+      "mcp__Atlassian__transitionJiraIssue",
+      "mcp__Atlassian__addCommentToJiraIssue",
+      "mcp__Atlassian__addWorklogToJiraIssue",
+      "mcp__Atlassian__createIssueLink"
     ]
   },
   "enabledMcpjsonServers": [
     "atlassian",
     "verifier-valeur",
-    "abibas-sql",
+    "abibas-sql"
+  ],
+  "disabledMcpjsonServers": [
     "jira-simule"
   ],
   "hooks": {

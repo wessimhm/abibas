@@ -3,7 +3,8 @@
 Vérificateur déterministe des tickets créés à partir du portail client (démo D10, partie B, fictif).
 
 Usage :
-    python3 tests/verifier_tickets_portail.py            # lit donnees/jira-simule.json
+    python3 tests/verifier_tickets_portail.py            # lit donnees/jira-simule.json (plan B, Jira simulé)
+    python3 tests/verifier_tickets_portail.py travail/ticket-*.json   # les traces des tickets créés dans le vrai Jira
 
 Attendu (entrees/portail-client/signalements-belmont.md) :
 - SIG-2031 et SIG-2034 (ballon 212, perte de pression) : UN seul ticket, qui cite les deux signalements, S/N L-0350 ;
@@ -44,11 +45,21 @@ def ballon(t, n):
 
 
 def main():
-    if not os.path.exists(MAGASIN):
-        print("ERREUR : donnees/jira-simule.json introuvable (python3 outils/reinitialiser_jira.py)")
-        sys.exit(3)
-    tickets = json.load(open(MAGASIN, encoding="utf-8"))["tickets"]
-    nouveaux = [t for t in tickets if t.get("cle") not in INITIAUX]
+    fichiers = [f for a in sys.argv[1:] for f in (sorted(glob.glob(a)) or [a])]
+    if fichiers:  # traces des tickets du vrai Jira (travail/ticket-<clé>.json)
+        nouveaux = []
+        for f in fichiers:
+            if not os.path.exists(f):
+                print(f"ERREUR : fichier introuvable : {f}")
+                sys.exit(3)
+            d = json.load(open(f, encoding="utf-8"))
+            nouveaux += d["tickets"] if isinstance(d, dict) and "tickets" in d else (d if isinstance(d, list) else [d])
+    else:
+        if not os.path.exists(MAGASIN):
+            print("ERREUR : donnees/jira-simule.json introuvable (python3 outils/reinitialiser_jira.py)")
+            sys.exit(3)
+        tickets = json.load(open(MAGASIN, encoding="utf-8"))["tickets"]
+        nouveaux = [t for t in tickets if t.get("cle") not in INITIAUX]
     portail = [t for t in nouveaux if "sig-20" in sa(json.dumps(t, ensure_ascii=False))
                or any(ballon(t, n) for n in (212, 87, 19))]
     print(f"Vérification des tickets du portail client : {len(portail)} ticket(s) trouvé(s) "
