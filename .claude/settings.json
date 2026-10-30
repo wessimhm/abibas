@@ -11,9 +11,8 @@
       "Bash(python3 outils/lire_document.py *)",
       "Bash(python3 outils/md_vers_docx.py *)",
       "Bash(python3 outils/calcul_devis.py *)",
-      "Write(./travail/**)",
       "Edit(./travail/**)",
-      "Write(./journal-essais.md)",
+      "Edit(./connaissances/**/*.md)",
       "Edit(./journal-essais.md)",
       "mcp__verifier-valeur__verifier_valeur",
       "mcp__verifier-valeur__lister_exigences",
@@ -29,8 +28,7 @@
       "Bash(python3 tests/verifier_tickets_portail.py *)",
       "mcp__atlassian__getJiraIssue",
       "mcp__atlassian__searchJiraIssuesUsingJql",
-      "mcp__atlassian__listJiraProjects",
-      "Write(./connaissances/**/*.md)"
+      "mcp__atlassian__listJiraProjects"
     ],
     "deny": [
       "Bash(rm *)",
@@ -39,14 +37,9 @@
       "Bash(curl *)",
       "Bash(wget *)",
       "Bash(scp *)",
-      "Edit(./connaissances/**)",
-      "Write(./originaux/**)",
       "Edit(./originaux/**)",
-      "Write(./entrees/**)",
       "Edit(./entrees/**)",
-      "Write(./essais/**)",
       "Edit(./essais/**)",
-      "Write(./donnees/**)",
       "Edit(./donnees/**)",
       "mcp__atlassian__deleteJiraIssue",
       "mcp__atlassian__deleteJiraComment"
