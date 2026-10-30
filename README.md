@@ -127,7 +127,7 @@ Les skills d’Abibas : `rapport-essai`, `planifier-rapport`, `verifier-spec`, `
 
 Un fichier Markdown dans `.claude/commands/` devient une commande qu’on tape avec `/`. Le texte du fichier est la demande envoyée à Claude ; `$ARGUMENTS` reçoit ce qu’on tape après.
 
-Chez Abibas : `/verifier <rapport>`, `/devis <courriel>`, `/ticket`.
+Chez Abibas : `/verifier <rapport>`, `/devis <courriel>`, `/ticket`. Et une commande réservée au formateur, `/reinitialiser` : elle remet le dépôt comme au premier jour (`disable-model-invocation: true` : Claude ne la lance jamais de lui-même).
 
 ## Les agents : des coéquipiers spécialisés
 
