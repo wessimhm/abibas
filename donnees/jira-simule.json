@@ -44,6 +44,28 @@
       "demandeur": "Isabelle Roy",
       "resolution": "Remplacement par un ballon thermocollé (action de NC-2025-021).",
       "cree_le": "2026-06-04T14:05:00"
+    },
+    {
+      "cas_semblables": "QUAL-42 (ballon 15, couture qui prend l’eau, clôturé) ; NC-2025-021 (prise d’eau à une couture après la pluie, LP-400) ; NC-2025-014 (fuite de valve, LP-400)",
+      "client": "Ligue de foot de Belmont, saison 2027",
+      "date_incident": "Match sous la pluie de « samedi », au parc de Belmont (courriel du 26 octobre 2026) ; date exacte [À COMPLÉTER]",
+      "demandeur": "Isabelle Roy, responsable de l’équipement, Ligue de foot de Belmont",
+      "etiquettes": [
+        "cree-par-IA"
+      ],
+      "exigence": "EX-02 (pression résiduelle) ou EX-03 (absorption d’eau, décollement), à confirmer",
+      "gravite": "Majeure, à confirmer",
+      "nb_unites": 3,
+      "pieces_jointes": "photo-ballon-128.jpg ; courriel d’Isabelle Roy du 26 octobre 2026",
+      "produit": "Ballon LP-500",
+      "projet": "QUAL",
+      "resume": "Belmont · ballon 128 · dégonflé, couture ouverte près de la valve",
+      "sn": "S/N L-0311 (ballon 128) ; ballons 54 et 201 : [À COMPLÉTER]",
+      "statut": "À trier",
+      "symptome": "Ballon 128 : « s’est dégonflé pendant le match sous la pluie », « une couture est ouverte près de la valve ». Ballons 54 et 201 : « mous depuis le même match ». Les trois ballons sont retirés des matchs.",
+      "type": "Réclamation client",
+      "cle": "QUAL-43",
+      "cree_le": "2026-10-30T03:19:14"
     }
   ]
 }
