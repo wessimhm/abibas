@@ -29,7 +29,8 @@
       "Bash(python3 tests/verifier_tickets_portail.py *)",
       "mcp__atlassian__getJiraIssue",
       "mcp__atlassian__searchJiraIssuesUsingJql",
-      "mcp__atlassian__listJiraProjects"
+      "mcp__atlassian__listJiraProjects",
+      "Write(./connaissances/**/*.md)"
     ],
     "deny": [
       "Bash(rm *)",
@@ -38,7 +39,6 @@
       "Bash(curl *)",
       "Bash(wget *)",
       "Bash(scp *)",
-      "Write(./connaissances/**)",
       "Edit(./connaissances/**)",
       "Write(./originaux/**)",
       "Edit(./originaux/**)",

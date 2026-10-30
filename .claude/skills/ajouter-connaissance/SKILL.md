@@ -1,7 +1,7 @@
 ---
 name: ajouter-connaissance
-description: "Convertit un document Word (.docx) ou Excel (.xlsx) en fiche Markdown pour la base de connaissances : titres, tableaux, virgule décimale, en-tête de traçabilité, valeurs recopiées à l’identique. Écrit la fiche dans travail/a-ajouter/, puis un script vérifie que chaque nombre du document est dans la fiche, et rien de plus. À utiliser pour « ajoute ce document à la base », « convertis ce Word en Markdown », ou un fichier d’originaux/ qui n’a pas encore sa version .md."
-allowed-tools: Read, Grep, Glob, Write, Edit, Bash(mkdir -p travail/*), Bash(python3 outils/lire_document.py *), Bash(python3 .claude/skills/ajouter-connaissance/scripts/verifier_conversion.py *)
+description: "Convertit un document Word (.docx) ou Excel (.xlsx) en fiche Markdown pour la base de connaissances : titres, tableaux, virgule décimale, en-tête de traçabilité, valeurs recopiées à l’identique. Range la fiche directement dans connaissances/<dossier>/, marquée brouillon, puis un script vérifie que chaque nombre du document est dans la fiche, et rien de plus. À utiliser pour « ajoute ce document à la base », « convertis ce Word en Markdown », ou un fichier d’originaux/ qui n’a pas encore sa version .md."
+allowed-tools: Read, Grep, Glob, Write, Edit, Bash(python3 outils/lire_document.py *), Bash(python3 .claude/skills/ajouter-connaissance/scripts/verifier_conversion.py *)
 ---
 
 # Ajouter un document à la base de connaissances
@@ -26,15 +26,15 @@ allowed-tools: Read, Grep, Glob, Write, Edit, Bash(mkdir -p travail/*), Bash(pyt
 5. **Recopier, ne pas réécrire.** Chaque valeur à l’identique : virgule décimale, espace des milliers, unité, date telle qu’écrite. Ne rien résumer, reformuler, convertir ni compléter. Une valeur illisible : `[À COMPLÉTER]`.
 6. **Dire ce qui ne passe pas.** Là où l’outil affiche `[IMAGE NON LUE]`, écrire `[À COMPLÉTER : image non convertie, <sa légende>]`, et garder la ligne de légende telle quelle. Ne jamais décrire une image qu’on n’a pas vue.
 7. **Choisir le dossier** : `1-clients` (spécifications, fiches client), `2-savoir` (produit, méthodes, rapports validés, registres, leçons), `3-processus` (procédures, modèles, plans d’essai), `4-regles` (glossaire, politiques), `5-prix` (tarifs). En cas de doute, demander.
-8. **Enregistrer** avec Write (il crée les dossiers) dans `travail/a-ajouter/<dossier>/<nom du fichier d’origine>.md` : le nom du fichier, pas le titre intérieur. Jamais dans `connaissances/` : un humain relit, puis déplace la fiche.
+8. **Ranger** la fiche avec Write directement dans `connaissances/<dossier>/<nom du fichier d’origine>.md` : le nom du fichier, pas le titre intérieur. Le hook `garde.py` l’accepte parce que c’est une fiche **nouvelle** ; il refuse de toucher une fiche déjà validée. Pour corriger, réécrire la fiche entière avec Write : Edit est interdit dans `connaissances/` (settings.json). Tant que la ligne « Brouillon » est là, la fiche peut encore être réécrite ; quand un humain l’a relue, il retire cette ligne et la fiche ne se modifie plus depuis l’IA.
 9. **Consigner** dans `travail/DECISIONS.md` chaque choix non évident (en-tête fusionné, dossier choisi, valeur illisible), comme le demande le CLAUDE.md.
 
 ## Avant de dire « terminé »
 Le contrôle se relance tout seul après l’écriture (hook). Lancer aussi :
-`python3 .claude/skills/ajouter-connaissance/scripts/verifier_conversion.py "travail/a-ajouter/<dossier>/<fiche>.md"`
+`python3 .claude/skills/ajouter-connaissance/scripts/verifier_conversion.py "connaissances/<dossier>/<fiche>.md"`
 - **Nombre manquant** : une valeur du document n’est pas dans la fiche. Corriger.
 - **Nombre en trop** : une valeur de la fiche n’est pas dans le document (inventée ou convertie). Corriger.
 - Tant qu’il échoue, corriger. S’il signale des images ou des commentaires, vérifier que chacun a son `[À COMPLÉTER]`.
 
 ## Rendre
-En quelques lignes : le chemin de la fiche, le dossier proposé, le résultat du contrôle, la liste des `[À COMPLÉTER]`. Rappeler qu’un humain relit la fiche, retire la ligne « Brouillon », puis la déplace dans `connaissances/<dossier>/`.
+En quelques lignes : le chemin de la fiche, le dossier proposé, le résultat du contrôle, la liste des `[À COMPLÉTER]`. Rappeler qu’un humain relit la fiche puis retire la ligne « Brouillon » : c’est ce geste qui la valide.

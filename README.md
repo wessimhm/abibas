@@ -53,7 +53,7 @@ Un courriel n’entre jamais dans la base : il arrive dans `entrees/`, on le tra
 | `.claude/commands/` | Un raccourci qu’on tape | Quand on tape `/nom` | `/verifier RA-L500-01` |
 | `.claude/agents/` | Un coéquipier spécialisé, avec ses seuls outils | Quand Claude lui confie une tâche | `relecteur-langue` : lecture seule |
 | `.claude/hooks/` | Un frein qui s’exécute tout seul | Avant ou après chaque action | `garde.py` bloque « supprime le dossier travail » |
-| `.claude/settings.json` | Les permissions | Tout le temps | `rm` interdit, écriture seulement dans `travail/` |
+| `.claude/settings.json` | Les permissions | Tout le temps | `rm` interdit, écriture dans `travail/` (et nouvelles fiches de la base) |
 | `.mcp.json` + `mcp/` | Les outils branchés à Claude : Jira (Atlassian) et les outils maison | Quand Claude en a besoin | `searchJiraIssuesUsingJql` cherche dans Jira ; `verifier_valeur` compare une mesure à la spec |
 | `tests/` | Les vérifications automatiques | Quand on les lance | `verifier_rapport.py` : 25 contrôles |
 
@@ -121,7 +121,7 @@ allowed-tools: Read, Grep, Bash(python3 .claude/skills/devis-abibas/scripts/calc
 
 Les skills d’Abibas : `rapport-essai`, `planifier-rapport`, `verifier-spec`, `verifier-rapport`, `revue-client`, `devis-abibas`, `ticket-qualite`, `ajouter-connaissance`.
 
-`ajouter-connaissance` fait entrer un Word ou un Excel dans la base : il le lit avec `outils/lire_document.py`, écrit la fiche Markdown dans `travail/a-ajouter/<dossier>/`, puis son script vérifie que chaque nombre du document est dans la fiche, et rien de plus (le hook `apres_ecriture.py` le relance tout seul). Un humain relit la fiche, puis la déplace dans `connaissances/`. Exemple à convertir : `originaux/3-processus/PR-LAB-04 - Etalonnage des instruments.docx`, qui n’a pas encore sa fiche.
+`ajouter-connaissance` fait entrer un Word ou un Excel dans la base : il le lit avec `outils/lire_document.py`, range la fiche Markdown directement dans `connaissances/<dossier>/`, marquée « Brouillon rédigé avec l’aide de l’IA, à vérifier », puis son script vérifie que chaque nombre du document est dans la fiche, et rien de plus (le hook `apres_ecriture.py` le relance tout seul). Le hook `garde.py` laisse passer une fiche **nouvelle** ou encore en brouillon, mais refuse de modifier une fiche validée. Un humain relit la fiche et retire la ligne « Brouillon » : elle est validée et ne se modifie plus depuis l’IA. Exemple à convertir : `originaux/3-processus/PR-LAB-04 - Etalonnage des instruments.docx`, qui n’a pas encore sa fiche.
 
 ## Les commandes : des raccourcis
 
@@ -144,7 +144,7 @@ Chaque agent a son modèle par défaut (ligne `model:`) : le plus léger qui suf
 
 ## Les hooks et les permissions : les freins
 
-- `.claude/settings.json` fixe ce qui est **autorisé** (lire, écrire dans `travail/`, lancer les tests), **interdit** (`rm`, `curl`, écrire dans la base, supprimer un ticket Jira) et ce qui **demande votre accord** (créer ou modifier un ticket Jira).
+- `.claude/settings.json` fixe ce qui est **autorisé** (lire, écrire dans `travail/`, lancer les tests), **interdit** (`rm`, `curl`, toucher aux originaux et aux données, supprimer un ticket Jira ; dans la base, `garde.py` n’accepte que l’ajout d’une fiche nouvelle) et ce qui **demande votre accord** (créer ou modifier un ticket Jira).
 - Les hooks sont des scripts lancés automatiquement : `garde.py` avant chaque action (il bloque suppressions et envois), `apres_ecriture.py` après chaque écriture, `fin.py` à la fin.
 
 Une consigne dans CLAUDE.md peut être oubliée ; un hook ou une permission, non.
