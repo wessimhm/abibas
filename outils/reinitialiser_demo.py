@@ -87,4 +87,4 @@ reste = git("status", "--porcelain").strip()
 print(f"\nFait : {len(modifies)} fichier(s) remis d'origine, {len(a_supprimer)} supprimé(s).")
 print("Le dépôt est comme au premier jour." if not reste else "Attention, il reste :\n" + reste)
 print("Hors du dépôt, à faire à la main si besoin : /clear dans Claude Code ; désinstaller les plugins "
-      "ajoutés (/plugin) ; supprimer dans Jira les tickets créés en E6.")
+      "ajoutés (/plugin) ; supprimer à la main, dans Jira (abibas.atlassian.net, projet QUAL), les tickets créés pendant les démos.")
