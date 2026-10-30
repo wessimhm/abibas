@@ -1,7 +1,7 @@
 ---
 name: ajouter-connaissance
 description: "Convertit un document Word (.docx) ou Excel (.xlsx) en fiche Markdown pour la base de connaissances : titres, tableaux, virgule décimale, en-tête de traçabilité, valeurs recopiées à l’identique. Écrit la fiche dans travail/a-ajouter/, puis un script vérifie que chaque nombre du document est dans la fiche, et rien de plus. À utiliser pour « ajoute ce document à la base », « convertis ce Word en Markdown », ou un fichier d’originaux/ qui n’a pas encore sa version .md."
-allowed-tools: Read, Grep, Glob, Write, Edit, Bash(python3 outils/lire_document.py *), Bash(python3 .claude/skills/ajouter-connaissance/scripts/verifier_conversion.py *)
+allowed-tools: Read, Grep, Glob, Write, Edit, Bash(mkdir -p travail/*), Bash(python3 outils/lire_document.py *), Bash(python3 .claude/skills/ajouter-connaissance/scripts/verifier_conversion.py *)
 ---
 
 # Ajouter un document à la base de connaissances
